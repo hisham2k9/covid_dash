@@ -1,0 +1,439 @@
+{% extends 'base1.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="page-header col-lg-12">
+                <h1 style="display: inline;">Summary</h1> <i>Click on labels on chart to select choices</i>
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-left col-lg-2 col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xm-3 text-center">
+                                <i class="fa fa-bell fa-3x"></i>
+                            </div>
+                            <div class="col-xm-9 text-right">
+                                <div class="huge">{{case_count}}</div>
+                                <div class = 'huge'>Total Number Cases</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xm-3 text-center">
+                                <i class="fa fa-heart fa-3x"></i>
+                            </div>
+                            <div class="col-xm-9 text-right">
+                                <div class="huge">{{recovery_count}}</div>
+                                <div class = 'huge'>Total Number Recoveries</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xm-3 text-center">
+                                <'      '<i class="fa fa-exclamation fa-3x"></i>
+                            </div>
+                            <div class="col-xm-9 text-right">
+                                <div class="huge">{{death_count}}</div>
+                                <div class = 'huge'>Total Number Deaths</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xm-3 text-center">
+                                <i class="fa fa-bed fa-3x"></i>
+                            </div>
+                            <div class="col-xm-9 text-right">
+                                <div class="huge">{{beds}}</div>
+                                <div class = 'huge'>Beds per 1000 Population</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xm-3 text-center">
+                                <i class="fa fa-user-md fa-3x"></i>
+                            </div>
+                            <div class="col-xm-9 text-right">
+                                <div class="huge">{{docs}}</div>
+                                <div class = 'huge'>Docs per 1000 Population</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xm-3 text-center">
+                                <i class="fa fa-users fa-3x"></i>
+                            </div>
+                            <div class="col-xm-9 text-right">
+                                <div class="huge">{{nurses}}</div>
+                                <div class = 'huge'>Nurse per 1000 Population</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xm-3 text-center">
+                                <i class="fa fa-bed fa-3x"></i>
+                            </div>
+                            <div class="col-xm-9 text-right">
+                                <div class="huge">{{beds_old}}</div>
+                                <div class = 'huge'>Beds per 1000 elderly</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xm-3 text-center">
+                                <i class="fa fa fa-user-md fa-3x"></i>
+                            </div>
+                            <div class="col-xm-9 text-right">
+                                <div class="huge">{{docs_old}}</div>
+                                <div class = 'huge'>Docs per 1000 elderly Popn</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xm-3 text-center">
+                                <i class="fa fa-users fa-3x"></i>
+                            </div>
+                            <div class="col-xm-9 text-right">
+                                <div class="huge">{{nurses_old}}</div>
+                                <div class = 'huge'>Nurses per 1000 elderly</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xm-3 text-center">
+                                <i class="fa fa-eyedropper fa-3x"></i>
+                            </div>
+                            <div class="col-xm-9 text-right">
+                                <div class="huge">{{tot_test}}</div>
+                                <div class = 'huge'>Total Number of tests done</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xm-3 text-center">
+                                <i class="fa fa-wheelchair fa-3x"></i>
+                            </div>
+                            <div class="col-xm-9 text-right">
+                                <div class="huge">{{avg_age}}</div>
+                                <div class = 'huge'>Average Age of Dead</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-lg-6">
+                <canvas id="countries" width="800" height="450"></canvas> 
+            </div>
+            <div class="col-lg-6">
+                <canvas id="cases" width="800" height="450"></canvas> 
+            </div> 
+        </div>
+        <div class='row'> 
+            <div class="col-lg-6">
+                <canvas id="statedist" width="800" height="450"></canvas> 
+            </div> 
+            <div class="col-lg-6">
+                <canvas id="topfive" width="800" height="450"></canvas> 
+            </div> 
+        </div>         
+    </div>
+</div>  
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+       $('#decline').on('click',function()
+       {
+           return confirm ('Confirm Defer action?');
+       });
+    });
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+       $('#complete').on('click',function()
+       {
+           return confirm ('Confirm Completion Update?');
+       });
+    });
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        {%if messages %}
+        {% for message in messages %}
+        alert('{{message}}');
+        {%endfor%}
+        {%endif%}
+       
+    });
+
+</script>
+<script type='text/javascript'>
+    $(document).ready(function()
+        {
+            new Chart(document.getElementById("cases"), {
+        
+                type: 'line',
+                data: {
+                  labels: [{%for k, v in death_dict.items%} '{{k}}', {%endfor%}],
+                  datasets: [
+                    { 
+                      data: [{%for k, v in newcase_dict.items %} '{{v}}', {%endfor%}],
+                      label: "New Cases",
+                      borderColor: "#8e5ea2",
+                    }, { 
+                      data: [{%for k, v in recovery_dict.items%} '{{v}}', {%endfor%}],
+                      label: "Recovered",
+                      borderColor: "#3cba9f",
+                    }, { 
+                      data: [{%for k, v in death_dict.items%} '{{v}}', {%endfor%}],
+                      label: "Death",
+                      borderColor: "#e8c3b9",
+                    }
+                  ]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'India Cases'
+                  }
+                }
+              });
+        
+        });
+    
+</script>
+
+<script type='text/javascript'>
+    $(document).ready(function()
+        {
+            new Chart(document.getElementById("countries"), {
+        
+                type: 'line',
+                data: {
+                  labels: [{%for k, v in country_dict.items%} '{{k}}', {%endfor%}],
+                  datasets: [
+                    { 
+                      data: [{%for v in chinalist %} '{{v}}', {%endfor%}],
+                      label: "China",
+                      borderColor: "#3e95cd",
+                      fill: false,
+                      hidden: true,
+                    }, { 
+                      data: [{%for  v in uslist%} '{{v}}', {%endfor%}],
+                      label: "US",
+                      borderColor: "#8e5ea2",
+                      fill: false,
+                      hidden: true,
+
+                    },
+                    { 
+                        data: [{%for v in italylist%} '{{v}}', {%endfor%}],
+                        label: "Italy",
+                        borderColor: "#3cba9f",
+                        fill:false,
+                        hidden: true,
+                      },
+                      { 
+                        data: [{%for  v in spainlist%} '{{v}}', {%endfor%}],
+                        label: "Spain",
+                        borderColor: "#e8c3b9",
+                        fill: false,
+                        hidden: true,
+                      },
+                      { 
+                        data: [{%for  v in indialist%} '{{v}}', {%endfor%}],
+                        label: "India",
+                        borderColor: "#c45850",
+                        fill: false,
+
+                      },
+                  ]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'India vs Other Major Countries'
+                  }
+                }
+              });
+        
+        });
+    
+</script>
+
+<script type='text/javascript'>
+    $(document).ready(function()
+        {
+            new Chart(document.getElementById("statedist"), {
+        
+                type: 'bar',
+                data: {
+                  labels: [{%for s in stateslist%} '{{s}}', {%endfor%}],
+                  datasets: [
+                    { 
+                      data: [{%for n in statenewcase%} '{{n}}', {%endfor%}],
+                      label: "Active Cases",
+                      backgroundColor: "blue",
+                    }, { 
+                      data: [{%for d in statedeath%} '{{d}}', {%endfor%}],
+                      label: "Deaths",
+                      backgroundColor: "red",
+
+                    },
+                    { 
+                        data: [{%for r in staterecovery%} '{{r}}', {%endfor%}],
+                        label: "Recoveries",
+                        backgroundColor: "green",
+                      },
+                  ]
+                },
+                tooltips: {
+                    mode: 'point',
+                    intersect: false
+                },
+                options:
+                 {
+                  title: 
+                  {
+                    display: true,
+                    text: 'Statewise cases'
+                  },
+                  responsive:true,
+                  scales: 
+                  {
+                    xAxes: 
+                    [{
+                        stacked: true,
+                    }],
+                    yAxes: 
+                    [{
+                        stacked: true
+                    }]
+                }
+                }
+              });
+        
+        });
+    
+</script>
+
+<script type='text/javascript'>
+    $(document).ready(function()
+        {
+            new Chart(document.getElementById("topfive"), {
+        
+                type: 'line',
+                data: {
+                  labels: [{%for k, v in top1.items%} '{{k}}', {%endfor%}],
+                  datasets: [
+                    { 
+                      data: [{%for k, v in top1.items%} '{{v}}', {%endfor%}],
+                      label: '{{top1_name}}',
+                      borderColor: "#3e95cd",
+                      fill: false,
+                      hidden: false,
+                    }, { 
+                      data: [{%for k, v in top2.items%} '{{v}}', {%endfor%}],
+                      label: '{{top2_name}}',
+                      borderColor: "#8e5ea2",
+                      fill: false,
+                      hidden: false,
+
+                    },
+                    { 
+                        data: [{%for k, v in top3.items%} '{{v}}', {%endfor%}],
+                        label: '{{top3_name}}',
+                        borderColor: "#3cba9f",
+                        fill:false,
+                        hidden: false,
+                      },
+                      { 
+                        data: [{%for k, v in top4.items%} '{{v}}', {%endfor%}],
+                        label: '{{top4_name}}',
+                        borderColor: "#e8c3b9",
+                        fill: false,
+                        hidden: false,
+                      },
+                      { 
+                        data: [{%for k, v in top5.items%} '{{v}}', {%endfor%}],
+                        label: '{{top5_name}}',
+                        borderColor: "#c45850",
+                        fill: false,
+                            
+                      },
+                  ]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'India Top 5 states'
+                  }
+                }
+              });
+        
+        });
+    
+</script>
+
+{%endblock%}

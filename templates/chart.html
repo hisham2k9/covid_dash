@@ -1,0 +1,115 @@
+{% extends 'base1.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Charts</h1>
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-lg-6">
+                <canvas id="countries" width="1200" height="450"></canvas> 
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-lg-6">
+                <canvas id="cases" width="800" height="450"></canvas> 
+            </div> 
+            <div class="col-lg-6">
+                <canvas id="countries" width="800" height="450"></canvas> 
+            </div> 
+        </div>                 
+    </div>
+</div>  
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+
+<!-- line chart canvas element -->
+<!-- pie chart canvas element -->
+<script type='text/javascript'>
+    $(document).ready(function()
+        {
+            new Chart(document.getElementById("cases"), {
+        
+                type: 'line',
+                data: {
+                  labels: [{%for k, v in death_dict.items%} '{{k}}', {%endfor%}],
+                  datasets: [
+                    { 
+                      data: [{%for k, v in newcase_dict.items %} '{{v}}', {%endfor%}],
+                      label: "New Cases",
+                      borderColor: "#8e5ea2",
+                    }, { 
+                      data: [{%for k, v in recovery_dict.items%} '{{v}}', {%endfor%}],
+                      label: "Recovered",
+                      borderColor: "#3cba9f",
+                    }, { 
+                      data: [{%for k, v in death_dict.items%} '{{v}}', {%endfor%}],
+                      label: "Death",
+                      borderColor: "#e8c3b9",
+                    }
+                  ]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'India Cases'
+                  }
+                }
+              });
+        
+        });
+    
+</script>
+
+<script type='text/javascript'>
+    $(document).ready(function()
+        {
+            new Chart(document.getElementById("countries"), {
+        
+                type: 'line',
+                data: {
+                  labels: [{%for k, v in country_dict.items%} '{{k}}', {%endfor%}],
+                  datasets: [
+                    { 
+                      data: [{%for v in chinalist %} '{{v}}', {%endfor%}],
+                      label: "China",
+                      borderColor: "#3e95cd",
+                    }, { 
+                      data: [{%for  v in uslist%} '{{v}}', {%endfor%}],
+                      label: "US",
+                      borderColor: "#8e5ea2",
+                    },
+                    { 
+                        data: [{%for v in italylist%} '{{v}}', {%endfor%}],
+                        label: "Italy",
+                        borderColor: "#3cba9f",
+                      },
+                      { 
+                        data: [{%for  v in spainlist%} '{{v}}', {%endfor%}],
+                        label: "Spain",
+                        borderColor: "#e8c3b9",
+                      },
+                      { 
+                        data: [{%for  v in indialist%} '{{v}}', {%endfor%}],
+                        label: "India",
+                        borderColor: "#c45850",
+                      },
+                  ]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'India vs Other Major Countries'
+                  }
+                }
+              });
+        
+        });
+    
+</script>
+{%endblock%}

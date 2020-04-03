@@ -1,0 +1,94 @@
+{% extends 'base1.html' %}
+{% load render_table from django_tables2 %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="page-header col-lg-4">
+                <h1 style="display: inline;">{{place}}: Statewise Details of Cases</h1>
+            </div>
+            <form action='statewisedetailview' , method=GET>
+                <div class="col-lg-5">
+                    <select id='state' name="state" class="form-control">
+                        <option  disabled selected>Select State:</option>
+                        {% for state in stateslist %}
+                        <option>{{state}}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <button type=submit  id='searchbutton' class="btn btn-primary fa fa-search">Search </button>
+                </div>
+            </form>
+        </div>
+        <div class=row>
+            <div class=col-lg-6>
+                {% render_table table %}
+            </div>
+            <div class=col-lg-6>
+                <canvas id="statechart" width="800" height="450"></canvas> 
+            </div>
+        </div>
+    </div>
+</div>  
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+       $('#decline').on('click',function()
+       {
+           return confirm ('Confirm Defer action?');
+       });
+    });
+
+</script>
+<script>
+    $(document).ready( function () {
+        $('#table').DataTable({ 
+            responsive: true,
+            
+        });
+
+    } );
+</script>   
+<script type='text/javascript'>
+    $(document).ready(function()
+        {
+            new Chart(document.getElementById("statechart"), {
+        
+                type: 'line',
+                data: {
+                  labels: [{%for item in newcaseqs%} '{{item.date}}', {%endfor%}],
+                  datasets: [
+                    { 
+                      data: [{%for item in newcaseqs%} '{{item.fstate}}', {%endfor%}],
+                      label: "New Cases",
+                      borderColor: "#8e5ea2",
+                    }, { 
+                      data: [{%for item in recoveryqs%} '{{item.fstate}}', {%endfor%}],
+                      label: "Recovered",
+                      borderColor: "#3cba9f",
+                    }, { 
+                      data: [{%for item in deathqs%} '{{item.fstate}}', {%endfor%}],
+                      label: "Death",
+                      borderColor: "#e8c3b9",
+                    }
+                  ]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'India Cases'
+                  }
+                }
+              });
+        
+        });
+    
+</script> 
+
+
+{%endblock%}

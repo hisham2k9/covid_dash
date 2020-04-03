@@ -1,0 +1,66 @@
+{% extends 'base1.html' %}
+{% load render_table from django_tables2 %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="page-header col-lg-12">
+                <h1 style="display: inline;">About</h1>
+            </div>
+        </div>
+        <div class=row>
+            <p><strong>Covid-19 India Dashboard: </strong></p><br>
+            <br>
+            <p>
+                This is a Covid-19 India Dashboard providing an overview
+                of the 2020 Novel Covid-19 virus outbreak in India and elsewhere around the world.This dashboard is build using
+                Python on django framework.
+            </p>
+        </div>
+        <div class=row>
+            <p><strong>Source of Data:  </strong></p>
+            <br>
+            <p>
+                The multiple sources of data is pulled from amazing guys at 
+                <a href='https://github.com/CSSEGISandData/COVID-19'> John Hopkins University CSSE</a>, 
+                <a href='https://www.mohfw.gov.in/'> Indian Ministry of Health and Family Welfare</a>,
+                as well as other reliable news sources and goverment press releases. The data and dashboard are refreshed 
+                on a daily basis.
+            </p>
+           
+        </div>
+    </div>
+</div>  
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+       $('#decline').on('click',function()
+       {
+           return confirm ('Confirm Defer action?');
+       });
+    });
+
+</script>
+<script>
+    $(document).ready( function () {
+        $('#table').DataTable({ 
+            dom:'B<"clear">ifrtip',
+            responsive: true,
+            buttons:
+            {
+                name:'primary',
+                buttons:['copy', 'csv', 'excel','pdf', 'print']
+                
+            }
+            
+        });
+
+    } );
+</script>    
+
+
+{%endblock%}

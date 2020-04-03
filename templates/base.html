@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Covid India Dashboard</title>
+
+        <!-- admin files-->
+        <script type="text/javascript" src="/jsi18n/"></script>
+        <script type="text/javascript" src="{% static 'admin/js/core.js' %}"></script>
+        <script type="text/javascript" src="{% static 'admin/js/admin/RelatedObjectLookups.js' %}"></script>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'admin/css/forms.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'admin/css/base.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets.css' %}"/>
+
+        <script type="text/javascript" src="{% static 'admin/js/calendar.js' %}"></script> 
+        <script type="text/javascript" src="{% static 'admin/js/admin/DateTimeShortcuts.js' %}"></script> 
+
+       <!-- Bootstrap Core CSS -->
+       <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+       <!-- MetisMenu CSS -->
+       <link href="{% static 'css/metisMenu.min.css' %}" rel="stylesheet">
+
+       <!-- Custom CSS -->
+       <link href="{% static 'css/startmin.css' %}" rel="stylesheet">
+
+       <!-- Custom Fonts -->
+       <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+ 
+
+
+       <!-- DataTables CSS -->
+       <link rel="stylesheet" type="text/css" href="{% static 'DataTables/datatables.min.css' %}"/>
+
+       <!-- DataTables Responsive CSS -->
+       <link href="{% static 'css/dataTables/dataTables.responsive.css' %}" rel="stylesheet">
+
+       <!-- Multiselect select2 jquery -->
+       <link href="{% static 'select2/dist/css/select2.min.css' %}" rel="stylesheet" />
+
+
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+       <!-- <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script> -->
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+       <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">  -->
+    </head>
+    <body>
+
+        <div id="wrapper">
+
+            <!-- Navigation -->
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">Covid India</a>
+                </div>
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+
+
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li>
+                                <a href="chart"class="active"><i class="fa fa-bar-chart-o fa-fw"></i> Charts</a>
+                            </li>
+                            <li>
+                                <a href="index.html" class="active"><i class="fa fa-dashboard fa-fw"></i> Summary</a>
+                            </li>
+                            <li>
+                                <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="panels-wells.html">Death Details</a>
+                                    </li>
+                                    <li>
+                                        <a href="buttons.html">state wise Covid Details</a>
+                                    </li>
+                                    <li>
+                                        <a href="notifications.html">Indian Cases Abroad</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Feedback</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-files-o fa-fw"></i>Source and Acknowledgement</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            {%  block content %}
+                
+            {% endblock %}
+
+        
+ 
+        <script type="text/javascript" src="{% static 'DataTables/datatables.min.js' %}"></script>
+        
+        <!--Chart js-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        
+        <!-- jQuery -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+        
+
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="{% static 'js/metisMenu.min.js' %}"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="{% static 'js/startmin.js' %}"></script>
+
+        <!-- jQuery -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+        
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="{% static 'js/metisMenu.min.js' %}"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="{% static 'js/startmin.js' %}"></script>
+
+        <script src="{% static 'autodater.js' %}"></script>
+        <!-- DataTables JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.20/af-2.3.4/b-1.6.1/b-colvis-1.6.1/b-flash-1.6.1/b-html5-1.6.1/b-print-1.6.1/cr-1.5.2/fc-3.3.0/fh-3.1.6/kt-2.5.1/r-2.2.3/rg-1.1.1/rr-1.2.6/sc-2.0.1/sp-1.0.1/sl-1.3.1/datatables.min.js"></script>
+        
+        <!-- Multiselect select2 jquery -->
+        <script src="{% static 'select2/dist/js/select2.min.js' %}"></script>
+
+        <!--Jquery ui widgets -->
+        <script src="{% static 'jQuery-File-Upload-master/js/vendor/jquery.ui.widget.js' %}"></script>
+        <!--File upload widget js-->
+        <script type="text/javascript" src="{%static 'jQuery-File-Upload-master/js/jquery.iframe-transport.js' %}"></script>
+        <script type="text/javascript" src="{%static 'jQuery-File-Upload-master/js/jquery.fileupload.js' %}"></script>
+        <script src="{% static 'photos/js/imageupload.js' %}"></script>
+
+    </body>
+</html>
