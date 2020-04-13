@@ -9,29 +9,48 @@
 
         <title>Startmin - Bootstrap Admin Theme</title>
 
-        <!-- Bootstrap Core CSS -->
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <!-- admin files-->
+        <script type="text/javascript" src="/jsi18n/"></script>
+        <script type="text/javascript" src="{% static 'admin/js/core.js' %}"></script>
+        <script type="text/javascript" src="{% static 'admin/js/admin/RelatedObjectLookups.js' %}"></script>
 
-        <!-- MetisMenu CSS -->
-        <link href="../css/metisMenu.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'admin/css/forms.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'admin/css/base.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets.css' %}"/>
+
+        <script type="text/javascript" src="{% static 'admin/js/calendar.js' %}"></script> 
+        <script type="text/javascript" src="{% static 'admin/js/admin/DateTimeShortcuts.js' %}"></script> 
+
+       <!-- Bootstrap Core CSS -->
+       <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+       <!-- MetisMenu CSS -->
+       <link href="{% static 'css/metisMenu.min.css' %}" rel="stylesheet">
+
+       <!-- Custom CSS -->
+       <link href="{% static 'css/startmin.css' %}" rel="stylesheet">
+
+       <!-- Custom Fonts -->
+       <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+ 
 
 
+       <!-- DataTables CSS -->
+       <link rel="stylesheet" type="text/css" href="{% static 'DataTables/datatables.min.css' %}"/>
 
-        <!-- Custom CSS -->
-        <link href="../css/startmin.css" rel="stylesheet">
+       <!-- DataTables Responsive CSS -->
+       <link href="{% static 'css/dataTables/dataTables.responsive.css' %}" rel="stylesheet">
 
-        <!-- Morris Charts CSS -->
-        <link href="../css/morris.css" rel="stylesheet">
+       <!-- Multiselect select2 jquery -->
+       <link href="{% static 'select2/dist/css/select2.min.css' %}" rel="stylesheet" />
 
-        <!-- Custom Fonts -->
-        <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+       <!-- <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script> -->
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+       <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">  -->
     </head>
     <body>
 
