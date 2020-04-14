@@ -25,12 +25,25 @@ class indianabroadtable(tables.Table):
 class statewisedetailtable(tables.Table):
     date=tables.Column()
     new_case=tables.Column()
-    death_case=tables.Column()
-    recovery_case=tables.Column()
+    deaths=tables.Column()
+    recovery=tables.Column()
     
     class Meta:
         attrs = {"class": "table table-striped table-bordered table-hover dataTable ",
                  'id':'table' }
-        
+ 
+ 
+class indiatable(tables.Table):
+    State=tables.Column()
+    T=tables.Column()
+    A=tables.Column()
+    R=tables.Column()
+    D=tables.Column()
+    
+    class Meta:
+        attrs = {"class": "table table-striped table-bordered table-hover dataTable  ",
+                 'id':'table',
+                 'style': "'width:10%'" }
+             
     
     

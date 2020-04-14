@@ -1,64 +1,113 @@
 {% extends 'base1.html' %}
 {% load crispy_forms_tags %}
+{% load render_table from django_tables2 %}
 
 
 {% block content %}
 
 <div id="page-wrapper">
     <div class="container-fluid">
-        <div class="row">
-            <div class="page-header col-lg-12">
-                <h1 style="display: inline;">Summary</h1> <i>Click on labels on chart to select choices</i>
+        <div class="page-header row">
+            <div class=" col-lg-6">
+                <h1 style="display: inline;">Summary</h1>
+            </div>
+        </div>
+        <div class=row>
+            <div class='col-xs-12'>
+                <div class="text-primary">
+                    <p><em>Last Updated: {{update_time}}</em></p>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="text-left col-lg-2 col-md-6">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xm-3 text-center">
-                                <i class="fa fa-bell fa-3x"></i>
-                            </div>
-                            <div class="col-xm-9 text-right">
-                                <div class="huge">{{case_count}}</div>
-                                <div class = 'huge'>Total Number Cases</div>
-                            </div>
-                        </div>
+            <div class="col-xs-4">
+                <div class=" text-center panel panel-red">
+                    <div class='panel-heading'>
+                        <div class="small">Total</div>
+                        <div class = 'huge'>{{case_count}}</div>
+                    </div> 
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class=" text-center panel panel-primary">
+                    <div class='panel-heading'>
+                    <div class="small">Active</div>
+                    <div class = 'huge'>{{active_count}}</div>
                     </div>
                 </div>
             </div>
+            <div class="col-xs-4">
+                <div class=" text-center panel panel-green">
+                    <div class='panel-heading'>
+                    <div class="small">Recovered</div>
+                    <div class = 'huge'>{{recovery_count}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class=" text-center panel panel-danger">
+                    <div class='panel-heading'>
+                    <div class="small">Death</div>
+                    <div class = 'huge'>{{death_count}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class=" text-center panel panel-info">
+                    <div class='panel-heading'>
+                    <div class="small">{{free_message}}</div>
+                    <div class = 'huge'>{{free_box}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class=" text-center panel panel-success">
+                    <div class='panel-heading'>
+                    <div class="small">Tested</div>
+                    <div class = 'huge'>{{tot_test}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class=row>
+                <div class='col-xs-12'>
+                    <div class="text-primary">
+                        <p><em>{{asterisk}}</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class=row>
+            <div class="col-lg-12" >
+                {% render_table table %}
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-12 text-center text-primary">
+                <p><em>Click on legend on chart to interact</em></p>
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-lg-6">
+                <canvas id="countries" width="800" height="950"></canvas>
+            </div>
+            <div class="col-lg-6">
+                <canvas id="cases" width="800" height="950"></canvas>
+            </div>
+        </div>
+        <div class='row'>
+            <div class="col-lg-6">
+                <canvas id="statedist" width="800" height="950"></canvas>
+            </div>
+            <div class="col-lg-6">
+                <canvas id="topfive" width="800" height="950"></canvas>
+            </div>
+        </div>  
+            
+  
             <div class="col-lg-2 col-md-6">
                 <div class="panel panel-warning">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xm-3 text-center">
-                                <i class="fa fa-heart fa-3x"></i>
-                            </div>
-                            <div class="col-xm-9 text-right">
-                                <div class="huge">{{recovery_count}}</div>
-                                <div class = 'huge'>Total Number Recoveries</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xm-3 text-center">
-                                <'      '<i class="fa fa-exclamation fa-3x"></i>
-                            </div>
-                            <div class="col-xm-9 text-right">
-                                <div class="huge">{{death_count}}</div>
-                                <div class = 'huge'>Total Number Deaths</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <div class="panel panel-info">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xm-3 text-center">
@@ -73,7 +122,7 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-6">
-                <div class="panel panel-warning">
+                <div class="panel panel-success">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xm-3 text-center">
@@ -88,7 +137,7 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-6">
-                <div class="panel panel-success">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xm-3 text-center">
@@ -103,7 +152,7 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-6">
-                <div class="panel panel-info">
+                <div class="panel panel-warning">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xm-3 text-center">
@@ -118,7 +167,7 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-6">
-                <div class="panel panel-warning">
+                <div class="panel panel-success">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xm-3 text-center">
@@ -133,7 +182,7 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-6">
-                <div class="panel panel-success">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xm-3 text-center">
@@ -147,55 +196,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-6">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xm-3 text-center">
-                                <i class="fa fa-eyedropper fa-3x"></i>
-                            </div>
-                            <div class="col-xm-9 text-right">
-                                <div class="huge">{{tot_test}}</div>
-                                <div class = 'huge'>Total Number of tests done</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <div class="panel panel-warning">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xm-3 text-center">
-                                <i class="fa fa-wheelchair fa-3x"></i>
-                            </div>
-                            <div class="col-xm-9 text-right">
-                                <div class="huge">{{avg_age}}</div>
-                                <div class = 'huge'>Average Age of Dead</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-        <div class='row'>
-            <div class="col-lg-6">
-                <canvas id="countries" width="800" height="450"></canvas> 
-            </div>
-            <div class="col-lg-6">
-                <canvas id="cases" width="800" height="450"></canvas> 
-            </div> 
-        </div>
-        <div class='row'> 
-            <div class="col-lg-6">
-                <canvas id="statedist" width="800" height="450"></canvas> 
-            </div> 
-            <div class="col-lg-6">
-                <canvas id="topfive" width="800" height="450"></canvas> 
-            </div> 
-        </div>         
+        
     </div>
-</div>  
+</div>
 <script type="text/javascript">
     $(document).ready(function()
     {
@@ -224,7 +228,7 @@
         alert('{{message}}');
         {%endfor%}
         {%endif%}
-       
+
     });
 
 </script>
@@ -232,20 +236,20 @@
     $(document).ready(function()
         {
             new Chart(document.getElementById("cases"), {
-        
+
                 type: 'line',
                 data: {
                   labels: [{%for k, v in death_dict.items%} '{{k}}', {%endfor%}],
                   datasets: [
-                    { 
+                    {
                       data: [{%for k, v in newcase_dict.items %} '{{v}}', {%endfor%}],
                       label: "New Cases",
                       borderColor: "#8e5ea2",
-                    }, { 
+                    }, {
                       data: [{%for k, v in recovery_dict.items%} '{{v}}', {%endfor%}],
                       label: "Recovered",
                       borderColor: "#3cba9f",
-                    }, { 
+                    }, {
                       data: [{%for k, v in death_dict.items%} '{{v}}', {%endfor%}],
                       label: "Death",
                       borderColor: "#e8c3b9",
@@ -255,57 +259,62 @@
                 options: {
                   title: {
                     display: true,
-                    text: 'India Cases'
+                    text: 'India Cases (Daily)'
                   }
                 }
               });
-        
+
         });
-    
+
 </script>
 
 <script type='text/javascript'>
     $(document).ready(function()
         {
             new Chart(document.getElementById("countries"), {
-        
+
                 type: 'line',
                 data: {
                   labels: [{%for k, v in country_dict.items%} '{{k}}', {%endfor%}],
                   datasets: [
-                    { 
-                      data: [{%for v in chinalist %} '{{v}}', {%endfor%}],
-                      label: "China",
+                    {
+                      data: [{%for v in francelist %} '{{v}}', {%endfor%}],
+                      label: "France",
                       borderColor: "#3e95cd",
                       fill: false,
                       hidden: true,
-                    }, { 
+                      pointRadius:2,
+                    }, {
                       data: [{%for  v in uslist%} '{{v}}', {%endfor%}],
                       label: "US",
                       borderColor: "#8e5ea2",
                       fill: false,
                       hidden: true,
+                      pointRadius:2,
 
                     },
-                    { 
+                    {
                         data: [{%for v in italylist%} '{{v}}', {%endfor%}],
                         label: "Italy",
                         borderColor: "#3cba9f",
                         fill:false,
-                        hidden: true,
+                        hidden: false,
+                        pointRadius:2,
                       },
-                      { 
+                      {
                         data: [{%for  v in spainlist%} '{{v}}', {%endfor%}],
                         label: "Spain",
                         borderColor: "#e8c3b9",
                         fill: false,
                         hidden: true,
+                        pointRadius:2,
                       },
-                      { 
+                      {
                         data: [{%for  v in indialist%} '{{v}}', {%endfor%}],
                         label: "India",
                         borderColor: "#c45850",
                         fill: false,
+                        pointRadius:2,
 
                       },
                   ]
@@ -313,35 +322,35 @@
                 options: {
                   title: {
                     display: true,
-                    text: 'India vs Other Major Countries'
+                    text: 'India vs Other Major Countries (cumulative) \n (Days since number of cases passed 100)'
                   }
                 }
               });
-        
+
         });
-    
+
 </script>
 
 <script type='text/javascript'>
     $(document).ready(function()
         {
             new Chart(document.getElementById("statedist"), {
-        
+
                 type: 'bar',
                 data: {
                   labels: [{%for s in stateslist%} '{{s}}', {%endfor%}],
                   datasets: [
-                    { 
+                    {
                       data: [{%for n in statenewcase%} '{{n}}', {%endfor%}],
                       label: "Active Cases",
                       backgroundColor: "blue",
-                    }, { 
+                    }, {
                       data: [{%for d in statedeath%} '{{d}}', {%endfor%}],
                       label: "Deaths",
                       backgroundColor: "red",
 
                     },
-                    { 
+                    {
                         data: [{%for r in staterecovery%} '{{r}}', {%endfor%}],
                         label: "Recoveries",
                         backgroundColor: "green",
@@ -354,86 +363,121 @@
                 },
                 options:
                  {
-                  title: 
+                  title:
                   {
                     display: true,
                     text: 'Statewise cases'
                   },
                   responsive:true,
-                  scales: 
+                  scales:
                   {
-                    xAxes: 
+                    xAxes:
                     [{
                         stacked: true,
                     }],
-                    yAxes: 
+                    yAxes:
                     [{
                         stacked: true
                     }]
                 }
                 }
               });
-        
+
         });
-    
+
 </script>
 
 <script type='text/javascript'>
     $(document).ready(function()
         {
             new Chart(document.getElementById("topfive"), {
-        
+
                 type: 'line',
                 data: {
                   labels: [{%for k, v in top1.items%} '{{k}}', {%endfor%}],
                   datasets: [
-                    { 
+                    {
                       data: [{%for k, v in top1.items%} '{{v}}', {%endfor%}],
                       label: '{{top1_name}}',
                       borderColor: "#3e95cd",
                       fill: false,
                       hidden: false,
-                    }, { 
+                      pointRadius:2,
+                    }, {
                       data: [{%for k, v in top2.items%} '{{v}}', {%endfor%}],
                       label: '{{top2_name}}',
                       borderColor: "#8e5ea2",
                       fill: false,
                       hidden: false,
+                      pointRadius:2,
 
                     },
-                    { 
+                    {
                         data: [{%for k, v in top3.items%} '{{v}}', {%endfor%}],
                         label: '{{top3_name}}',
                         borderColor: "#3cba9f",
                         fill:false,
                         hidden: false,
+                        pointRadius:2,
+
                       },
-                      { 
+                      {
                         data: [{%for k, v in top4.items%} '{{v}}', {%endfor%}],
                         label: '{{top4_name}}',
                         borderColor: "#e8c3b9",
                         fill: false,
                         hidden: false,
+                        pointRadius:2,
                       },
-                      { 
+                      {
                         data: [{%for k, v in top5.items%} '{{v}}', {%endfor%}],
                         label: '{{top5_name}}',
                         borderColor: "#c45850",
                         fill: false,
-                            
+                        pointRadius:2,
+
                       },
                   ]
                 },
                 options: {
                   title: {
                     display: true,
-                    text: 'India Top 5 states'
+                    text: 'India Top 5 states (cumulative)'
                   }
                 }
               });
-        
+
         });
-    
+
+</script>
+
+<script>
+    $(document).ready( function () {
+        $('#table').DataTable({ 
+            responsive: false,
+            "order": [[ 1, "desc" ]],
+            "paging":false,
+            "searching": false
+            
+        });
+
+    } );
+</script> 
+<script type='text/javascript'>
+    //$( ".row" ).hide();
+    var time = 1500;
+    $(document).ready(function(){
+        //$( ".row" ).slideUp();
+        $( ".row" ).each(function(index, element){
+            //setTimeout( function(){ $(element).slideDown(); }, time)
+            //$(element).delay(1000).slideDown();
+            //$(element).fadeIn("slow");
+            //setTimeOut(2000);
+        });
+
+    });
+   
+
 </script>
 
 {%endblock%}

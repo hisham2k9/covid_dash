@@ -2,6 +2,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PQNG8H3');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162681706-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162681706-1');
+</script>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Covid-19 India Dashboard</title>
@@ -15,12 +33,51 @@
         margin: 10px;
     }
 </style>
+
+
+<style type="text/css">
+    .panel-green .panel-heading {
+        border-color: #5cb85c;
+        color: #fff;
+        background-color: #5cb85c;
+    }
+    .panel-green {
+        border-color: #5cb85c;
+    }
+    .panel-green a {
+        color: #5cb85c;
+    }
+    .panel-green a:hover {
+        color: #3d8b3d;
+    }
+    
+    .panel-red {
+        border-color: #d9534f;
+    }
+    
+    .panel-red .panel-heading {
+        border-color: #d9534f;
+        color: #fff;
+        background-color: #d9534f;
+    }
+    
+    .panel-red a {
+        color: #d9534f;
+    }
+    
+    .panel-red a:hover {
+        color: #b52b27;
+    }
+    
+</style>
+
 <!-- admin files-->
 <script type="text/javascript" src="/jsi18n/"></script>
 <script type="text/javascript" src="{% static 'admin/js/core.js' %}"></script>
 <script type="text/javascript" src="{% static 'admin/js/admin/RelatedObjectLookups.js' %}"></script>
 
 <link rel="stylesheet" type="text/css" href="{% static 'admin/css/forms.css' %}"/>
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'css/startmin.css' %}"> -->
 <link rel="stylesheet" type="text/css" href="{% static 'admin/css/base.css' %}"/>
 <link rel="stylesheet" type="text/css" href="{% static 'admin/css/widgets.css' %}"/>
 
@@ -49,7 +106,13 @@
 <!-- <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script> -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
+
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQNG8H3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
 <div class="bs-example">
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         
@@ -57,7 +120,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse text-left" id="navbarCollapse">
+        <div class="collapse navbar-collapse text-left" id="navbarCollapse"  aria-expanded="true">
             <div class="navbar-nav">
                 <a href="home" class="nav-item nav-link active">Home</a>
                 <div class="nav-item dropdown">
@@ -70,6 +133,7 @@
                 </div>
                 <a href="feedbackview" class="nav-item nav-link">Feedback</a>
                 <a href="aboutview" class="nav-item nav-link">About</a>
+                <a id='gitsource' href="https://github.com/hisham2k9/covid_dash" class="outside nav-item nav-link"><i class="fa fa-github fa-fw"></i>Source Code</a>
             </div>
         </div>
         <a href="home" class="navbar-brand">Covid-19 India Dashboard</a>
@@ -85,7 +149,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 <!-- jQuery -->
-<script src="{% static 'js/jquery.min.js' %}"></script>
+<!-- <script src="{% static 'js/jquery.min.js' %}"></script> -->
 
 <!-- Bootstrap Core JavaScript -->
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -96,7 +160,7 @@
 <script src="{% static 'js/startmin.js' %}"></script>
 
 <!-- jQuery -->
-<script src="{% static 'js/jquery.min.js' %}"></script>
+<!-- <script src="{% static 'js/jquery.min.js' %}"></script> -->
 
 <!-- Bootstrap Core JavaScript -->
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -107,6 +171,7 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="{% static 'js/startmin.js' %}"></script>
+
 
 <script src="{% static 'jQuery-File-Upload-master/js/vendor/jquery.ui.widget.js' %}"></script>
 <script src="{% static 'autodater.js' %}"></script>

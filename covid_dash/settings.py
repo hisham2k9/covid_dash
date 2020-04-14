@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import sys
+
+sys.path.append(r"C:/Hisham/Projects")
+from covid_sensitive_data import alldetails
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'lu4l+4db=^5h1%m8ds8qd0uj@w2xxlcw^gg)=-jk6kg=ii285+'
+SECRET_KEY = alldetails.secure_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,13 +35,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'dash.apps.DashConfig',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dash.apps.DashConfig',
     'crispy_forms',
     'django_tables2',
 ]
@@ -81,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'coviddb',
         'USER': 'postgres',
-        'PASSWORD': 'cricket2016',
+        'PASSWORD': alldetails.db_password,
         'HOST': 'localhost'
     }
 }
@@ -117,7 +122,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -157,3 +162,5 @@ CONTENT_TYPES = ['image', 'video','pdf','doc']
 # 250MB - 214958080
 # 500MB - 429916160
 MAX_UPLOAD_SIZE = "2621440"
+
+RESET_PASS=alldetails.respass

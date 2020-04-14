@@ -30,7 +30,7 @@
                 {% render_table table %}
             </div>
             <div class=col-lg-6>
-                <canvas id="statechart" width="800" height="450"></canvas> 
+                <canvas id="statechart" width="800" height=950"></canvas> 
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
 <script>
     $(document).ready( function () {
         $('#table').DataTable({ 
-            responsive: true,
+            responsive: false,
             
         });
 
@@ -61,7 +61,7 @@
         
                 type: 'line',
                 data: {
-                  labels: [{%for item in newcaseqs%} '{{item.date}}', {%endfor%}],
+                  labels: [{%for dateobj in datelist%} '{{dateobj}}', {%endfor%}],
                   datasets: [
                     { 
                       data: [{%for item in newcaseqs%} '{{item.fstate}}', {%endfor%}],
@@ -81,7 +81,7 @@
                 options: {
                   title: {
                     display: true,
-                    text: 'India Cases'
+                    text: '{{place}} Cases'
                   }
                 }
               });

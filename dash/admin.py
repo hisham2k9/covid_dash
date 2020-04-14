@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import death, newcase, recovery,deathdetail,testcount,keycountry,indianabroad
+from .models import death, newcase, recovery,deathdetail,testcount,keycountry,indianabroad, feedback
 
 # Register your models here.
 
@@ -10,3 +10,4 @@ admin.site.register(deathdetail)
 admin.site.register(testcount)
 admin.site.register(keycountry)
 admin.site.register(indianabroad)
+admin.site.register(feedback)

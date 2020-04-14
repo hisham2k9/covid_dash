@@ -26,5 +26,7 @@ urlpatterns = [
     path('statewisedetailview', views.statewisedetailview, name='statewisedetailview'),
     path('reset', views.reset, name='reset'),
     path('feedbackview', views.feedbackview, name='feedbackview'),
-    path('aboutview', views.aboutview, name='aboutview')
+    path('aboutview', views.aboutview, name='aboutview'),
+    path('dancingmonkeys', views.dancingmonkeys, name='dancingmonkeys'),
+    path('scriptrequest', views.scriptrequest, name='scriptrequest')
 ]
