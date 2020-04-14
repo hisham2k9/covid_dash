@@ -613,7 +613,7 @@ def reset(request):
     
     if request.method=='POST':
         print(request.POST)
-        return 'hello'
+        return 'hello' 
         
         password=request.POST['password']
         
