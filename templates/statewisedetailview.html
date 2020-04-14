@@ -67,14 +67,17 @@
                       data: [{%for item in newcaseqs%} '{{item.fstate}}', {%endfor%}],
                       label: "New Cases",
                       borderColor: "#8e5ea2",
+                      pointRadius:0.5
                     }, { 
                       data: [{%for item in recoveryqs%} '{{item.fstate}}', {%endfor%}],
                       label: "Recovered",
                       borderColor: "#3cba9f",
+                      pointRadius:0.5
                     }, { 
                       data: [{%for item in deathqs%} '{{item.fstate}}', {%endfor%}],
                       label: "Death",
                       borderColor: "#e8c3b9",
+                      pointRadius:0.5
                     }
                   ]
                 },
@@ -82,7 +85,9 @@
                   title: {
                     display: true,
                     text: '{{place}} Cases'
-                  }
+                  },
+                  tooltips: { mode: 'index',intersect: false},
+                  hover: {mode: 'index',intersect: false}
                 }
               });
         

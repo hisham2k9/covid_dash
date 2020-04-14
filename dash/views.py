@@ -341,9 +341,9 @@ class resources:
         #sor accoring to new cases
         #sort state list accorinig to 
         
-        topfive=nstateslist[:5]
+        topfifteen=nstateslist[:15]
         
-        context['topfive']=topfive
+        context['topfifteen']=topfifteen
 
         context['qs']=qs
         context['stateslist']=nstateslist
@@ -355,7 +355,7 @@ class resources:
         
         return context
         
-    def topfiveloop(tstate):
+    def topfifteenloop(tstate):
         
         count=0
         item_dict={}
@@ -365,31 +365,23 @@ class resources:
             item_dict[date]=count
         return item_dict
     
-    def topfivestate(topfive):
+    def topfifteenstate(topfifteen):
         
         context={}
         #print(topfive)
-        context['top1_name']=topfive[0]
-        context['top2_name']=topfive[1]
-        context['top3_name']=topfive[2]
-        context['top4_name']=topfive[3]
-        context['top5_name']=topfive[4]
-        top1=resources.topfiveloop(topfive[0])
-        top2=resources.topfiveloop(topfive[1])
-        top3=resources.topfiveloop(topfive[2])
-        top4=resources.topfiveloop(topfive[3])
-        top5=resources.topfiveloop(topfive[4])
-    
-       # print(top1, '\n')
-       ## print(top2,'\n')
-        ##print(top4,'\n')
-        #print(top5,'\n')  
+        for i in range(15):
+            s=str(i+1)
+            strname='top{}_name'.format(s)
+            strnums='top{}'.format(s)
+            
+            top=resources.topfifteenloop(topfifteen[i])
+            context[strname]=topfifteen[i]
+            context[strnums]=top
+            
+            
         
-        context['top1']=top1
-        context['top2']=top2
-        context['top3']=top3
-        context['top4']=top4
-        context['top5']=top5
+        
+        #print('this is context \n',context)
         return context
         
            
@@ -410,7 +402,7 @@ def home(request):
         state=request.POST['state']
         context2=resources.chartscontent(request, state)
     context3=resources.stackedbarstate()
-    context4=resources.topfivestate(context3['topfive'])
+    context4=resources.topfifteenstate(context3['topfifteen'])
     context={**context, **context1, **context2, **context3, **context4} #joining two dicts
     qs=context['qs']
     
@@ -612,8 +604,6 @@ def reset(request):
     
     
     if request.method=='POST':
-        print(request.POST)
-        return 'hello' 
         
         password=request.POST['password']
         

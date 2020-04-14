@@ -101,7 +101,7 @@
                 <canvas id="statedist" width="800" height="950"></canvas>
             </div>
             <div class="col-lg-6">
-                <canvas id="topfive" width="800" height="950"></canvas>
+                <canvas id="topfifteen" width="800" height="1250"></canvas>
             </div>
         </div>  
             
@@ -245,22 +245,30 @@
                       data: [{%for k, v in newcase_dict.items %} '{{v}}', {%endfor%}],
                       label: "New Cases",
                       borderColor: "#8e5ea2",
+                      pointRadius:0.5,
+                      //borderWidth:1,
+                      fill:false
                     }, {
                       data: [{%for k, v in recovery_dict.items%} '{{v}}', {%endfor%}],
                       label: "Recovered",
                       borderColor: "#3cba9f",
+                      pointRadius:0.5,
+                      //borderWidth:1,
+                      fill:false
                     }, {
                       data: [{%for k, v in death_dict.items%} '{{v}}', {%endfor%}],
                       label: "Death",
                       borderColor: "#e8c3b9",
+                      pointRadius:0.5,
+                      //borderWidth:1,
+                      fill:false
                     }
                   ]
                 },
                 options: {
-                  title: {
-                    display: true,
-                    text: 'India Cases (Daily)'
-                  }
+                  title: {display: true,text: 'India Cases (Daily)'},
+                  tooltips: { mode: 'index',intersect: false},
+                  hover: {mode: 'index',intersect: false}
                 }
               });
 
@@ -282,15 +290,16 @@
                       label: "France",
                       borderColor: "#3e95cd",
                       fill: false,
-                      hidden: true,
-                      pointRadius:2,
+                      hidden: false,
+                      pointRadius:0.5,
+                      
                     }, {
                       data: [{%for  v in uslist%} '{{v}}', {%endfor%}],
                       label: "US",
                       borderColor: "#8e5ea2",
                       fill: false,
-                      hidden: true,
-                      pointRadius:2,
+                      hidden: false,
+                      pointRadius:0.5,
 
                     },
                     {
@@ -299,22 +308,23 @@
                         borderColor: "#3cba9f",
                         fill:false,
                         hidden: false,
-                        pointRadius:2,
+                        pointRadius:0.5,
                       },
                       {
                         data: [{%for  v in spainlist%} '{{v}}', {%endfor%}],
                         label: "Spain",
                         borderColor: "#e8c3b9",
                         fill: false,
-                        hidden: true,
-                        pointRadius:2,
+                        hidden: false,
+                        pointRadius:0.5,
                       },
                       {
                         data: [{%for  v in indialist%} '{{v}}', {%endfor%}],
                         label: "India",
                         borderColor: "#c45850",
                         fill: false,
-                        pointRadius:2,
+                        pointRadius:0.1,
+                        borderWidth:3
 
                       },
                   ]
@@ -323,7 +333,9 @@
                   title: {
                     display: true,
                     text: 'India vs Other Major Countries (cumulative) \n (Days since number of cases passed 100)'
-                  }
+                  },
+                  tooltips: { mode: 'index',intersect: false},
+                  hover: {mode: 'index',intersect: false}
                 }
               });
 
@@ -379,7 +391,9 @@
                     [{
                         stacked: true
                     }]
-                }
+                },
+                tooltips: { mode: 'index',intersect: false},
+                  hover: {mode: 'index',intersect: false}
                 }
               });
 
@@ -390,7 +404,7 @@
 <script type='text/javascript'>
     $(document).ready(function()
         {
-            new Chart(document.getElementById("topfive"), {
+            new Chart(document.getElementById("topfifteen"), {
 
                 type: 'line',
                 data: {
@@ -399,51 +413,134 @@
                     {
                       data: [{%for k, v in top1.items%} '{{v}}', {%endfor%}],
                       label: '{{top1_name}}',
-                      borderColor: "#3e95cd",
+                      borderColor: "#ff073a",
                       fill: false,
                       hidden: false,
-                      pointRadius:2,
+                      pointRadius:0.5,
                     }, {
                       data: [{%for k, v in top2.items%} '{{v}}', {%endfor%}],
                       label: '{{top2_name}}',
-                      borderColor: "#8e5ea2",
+                      borderColor: "#28a745",
                       fill: false,
                       hidden: false,
-                      pointRadius:2,
+                      pointRadius:0.5,
 
                     },
                     {
                         data: [{%for k, v in top3.items%} '{{v}}', {%endfor%}],
                         label: '{{top3_name}}',
-                        borderColor: "#3cba9f",
+                        borderColor: "#342ead",
                         fill:false,
                         hidden: false,
-                        pointRadius:2,
+                        pointRadius:0.5,
 
                       },
                       {
                         data: [{%for k, v in top4.items%} '{{v}}', {%endfor%}],
                         label: '{{top4_name}}',
-                        borderColor: "#e8c3b9",
+                        borderColor: "#7D5BA6",
                         fill: false,
                         hidden: false,
-                        pointRadius:2,
+                        pointRadius:0.5,
                       },
                       {
                         data: [{%for k, v in top5.items%} '{{v}}', {%endfor%}],
                         label: '{{top5_name}}',
-                        borderColor: "#c45850",
+                        borderColor: "#DD7596",
                         fill: false,
-                        pointRadius:2,
+                        pointRadius:0.5,
 
                       },
+                      {
+                        data: [{%for k, v in top6.items%} '{{v}}', {%endfor%}],
+                        label: '{{top6_name}}',
+                        borderColor: "#16c8f0",
+                        fill: false,
+                        hidden: true,
+                        pointRadius:0.5,
+                      },
+                      {
+                        data: [{%for k, v in top7.items%} '{{v}}', {%endfor%}],
+                        label: '{{top7_name}}',
+                        borderColor: "#f67575",
+                        fill: false,
+                        hidden: true,
+                        pointRadius:0.5,
+                      },
+                      {
+                        data: [{%for k, v in top8.items%} '{{v}}', {%endfor%}],
+                        label: '{{top8_name}}',
+                        borderColor: "#2b580c",
+                        fill: false,
+                        hidden: true,
+                        pointRadius:0.5,
+                      },
+                      {
+                        data: [{%for k, v in top9.items%} '{{v}}', {%endfor%}],
+                        label: '{{top9_name}}',
+                        borderColor: "#9D44B5",
+                        fill: false,
+                        hidden: true,
+                        pointRadius:0.5,
+                      },
+                      {
+                        data: [{%for k, v in top10.items%} '{{v}}', {%endfor%}],
+                        label: '{{top10_name}}',
+                        borderColor: "#91132d",
+                        fill: false,
+                        hidden: true,
+                        pointRadius:0.5,
+                      },
+                      {
+                        data: [{%for k, v in top11.items%} '{{v}}', {%endfor%}],
+                        label: '{{top11_name}}',
+                        borderColor: "#6D9DC5",
+                        fill: false,
+                        hidden: true,
+                        pointRadius:0.5,
+                      },
+                      {
+                        data: [{%for k, v in top12.items%} '{{v}}', {%endfor%}],
+                        label: '{{top12_name}}',
+                        borderColor: "#2b580c",
+                        fill: false,
+                        hidden: true,
+                        pointRadius:0.5,
+                      },
+                      {
+                        data: [{%for k, v in top13.items%} '{{v}}', {%endfor%}],
+                        label: '{{top13_name}}',
+                        borderColor: "#6c757d",
+                        fill: false,
+                        hidden: true,
+                        pointRadius:0.5,
+                      },
+                      {
+                        data: [{%for k, v in top14.items%} '{{v}}', {%endfor%}],
+                        label: '{{top14_name}}',
+                        borderColor: "#f67575",
+                        fill: false,
+                        hidden: true,
+                        pointRadius:0.5,
+                      },
+                      {
+                        data: [{%for k, v in top15.items%} '{{v}}', {%endfor%}],
+                        label: '{{top15_name}}',
+                        borderColor: "#d4f8e8",
+                        fill: false,
+                        hidden: true,
+                        pointRadius:0.5,
+                      },
+                      
                   ]
                 },
                 options: {
                   title: {
                     display: true,
-                    text: 'India Top 5 states (cumulative)'
-                  }
+                    text: ['India Top 15 states (cumulative)', 'Click legend to select visible states']
+                  },
+                  tooltips: { mode: 'index',intersect: false},
+                  hover: {mode: 'index',intersect: false},
                 }
               });
 
@@ -454,6 +551,7 @@
 <script>
     $(document).ready( function () {
         $('#table').DataTable({ 
+            dom:'B<"clear">ifrtip',
             responsive: false,
             "order": [[ 1, "desc" ]],
             "paging":false,
