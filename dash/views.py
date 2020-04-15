@@ -270,6 +270,8 @@ class resources:
         context['spainlist']=spainlist
         context['iranlist']=iranlist
         context['indialist']=indialist
+        
+                
 
         i=1
         trend_dict={}
@@ -405,20 +407,6 @@ def home(request):
     context4=resources.topfifteenstate(context3['topfifteen'])
     context={**context, **context1, **context2, **context3, **context4} #joining two dicts
     qs=context['qs']
-    
-    
-    #top five states trendline
-    # 
-    # #up, kerala,maharashtra, tamilnadu , delhi...
-
-    #single chart page with state trend ...new .. recovered, and dead...
-
-    #state wise info,
-    #trendline for state
-    
-    #make a script that deletes all and updates new script and saves data...
-    #google analytics
-    
     
     template='dashboard.html'
     return render(request, template, context)

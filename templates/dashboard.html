@@ -288,7 +288,7 @@
                     {
                       data: [{%for v in francelist %} '{{v}}', {%endfor%}],
                       label: "France",
-                      borderColor: "#3e95cd",
+                      borderColor: "#ff073a",
                       fill: false,
                       hidden: false,
                       pointRadius:0.5,
@@ -296,7 +296,7 @@
                     }, {
                       data: [{%for  v in uslist%} '{{v}}', {%endfor%}],
                       label: "US",
-                      borderColor: "#8e5ea2",
+                      borderColor: "#28a745",
                       fill: false,
                       hidden: false,
                       pointRadius:0.5,
@@ -305,7 +305,7 @@
                     {
                         data: [{%for v in italylist%} '{{v}}', {%endfor%}],
                         label: "Italy",
-                        borderColor: "#3cba9f",
+                        borderColor: "#342ead",
                         fill:false,
                         hidden: false,
                         pointRadius:0.5,
@@ -313,7 +313,7 @@
                       {
                         data: [{%for  v in spainlist%} '{{v}}', {%endfor%}],
                         label: "Spain",
-                        borderColor: "#e8c3b9",
+                        borderColor: "#7D5BA6",
                         fill: false,
                         hidden: false,
                         pointRadius:0.5,
@@ -321,10 +321,46 @@
                       {
                         data: [{%for  v in indialist%} '{{v}}', {%endfor%}],
                         label: "India",
-                        borderColor: "#c45850",
+                        borderColor: "#DD7596",
                         fill: false,
-                        pointRadius:0.1,
-                        borderWidth:3
+                        pointRadius:0.5,
+                        //borderWidth:0.5
+
+                      },
+                      {
+                        data: [{%for  v in uklist%} '{{v}}', {%endfor%}],
+                        label: "UK",
+                        borderColor: "#16c8f0",
+                        fill: false,
+                        pointRadius:0.5,
+                        //borderWidth:0.5
+
+                      },
+                      {
+                        data: [{%for  v in germanylist%} '{{v}}', {%endfor%}],
+                        label: "Germany",
+                        borderColor: "#f67575",
+                        fill: false,
+                        pointRadius:0.5,
+                       // borderWidth:0.5
+
+                      },
+                      {
+                        data: [{%for  v in iranlist%} '{{v}}', {%endfor%}],
+                        label: "Iran",
+                        borderColor: "#2b580c",
+                        fill: false,
+                        pointRadius:0.5,
+                        //borderWidth:0.5
+
+                      },
+                      {
+                        data: [{%for  v in chinalist%} '{{v}}', {%endfor%}],
+                        label: "China",
+                        borderColor: "#9D44B5",
+                        fill: false,
+                        pointRadius:0.5,
+                        //borderWidth:0.5
 
                       },
                   ]
@@ -551,7 +587,6 @@
 <script>
     $(document).ready( function () {
         $('#table').DataTable({ 
-            dom:'B<"clear">ifrtip',
             responsive: false,
             "order": [[ 1, "desc" ]],
             "paging":false,
