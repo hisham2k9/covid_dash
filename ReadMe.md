@@ -2,5 +2,18 @@ This the source-code for website hosted at https://hisham2k9.pythonanywhere.com.
 
 ## Screenshots
 
-### Home screen - India tab
+### Home Screen - India 
 ![India](https://github.com/hisham2k9/covid_dash/blob/master/covid_dash1.PNG?raw=true)
+
+### Home Screen - India State Level
+![State](https://github.com/hisham2k9/covid_dash/blob/master/covid_dash2.PNG?raw=true)
+
+### Home Screen - World
+![World](https://github.com/hisham2k9/covid_dash/blob/master/covid_dash3.PNG?raw=true)
+
+### Home Screen - On Mobile Device
+![Smartphone](https://github.com/hisham2k9/covid_dash/blob/master/covid_dash5.PNG?raw=true)
+
+### Create Your Own Chart & Compare
+![Compare](https://github.com/hisham2k9/covid_dash/blob/master/covid_dash4.PNG?raw=true)
+
