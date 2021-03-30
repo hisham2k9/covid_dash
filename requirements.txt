@@ -1,6 +1,6 @@
 APScheduler==3.6.3
 asgiref==3.2.7
-Django==3.0.5
+Django==3.0.12
 django-crispy-forms==1.9.0
 django-tables2==2.3.0
 Jinja2==2.11.1
